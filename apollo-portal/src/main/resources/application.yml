@@ -40,7 +40,7 @@ server:
 
 logging:
   file:
-    name: /opt/logs/100003173/apollo-portal.log
+    name: /${java.class.path}/apollo-portal.log
 
 management:
   health:
