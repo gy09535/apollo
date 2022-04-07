@@ -19,7 +19,10 @@ package com.ctrip.framework.apollo.spring.boot;
 import com.ctrip.framework.apollo.spring.config.ConfigPropertySourcesProcessor;
 import com.ctrip.framework.apollo.spring.config.PropertySourcesConstants;
 import com.ctrip.framework.apollo.spring.config.PropertySourcesProcessor;
+import com.ctrip.framework.apollo.spring.config.SpringCloudConfigPropertySourceProcessor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +33,14 @@ import org.springframework.context.annotation.Configuration;
 public class ApolloAutoConfiguration {
 
   @Bean
+  @ConditionalOnMissingClass("org.springframework.cloud.context.scope.refresh.RefreshScope")
   public ConfigPropertySourcesProcessor configPropertySourcesProcessor() {
     return new ConfigPropertySourcesProcessor();
+  }
+
+  @Bean
+  @ConditionalOnClass(name = {"org.springframework.cloud.context.scope.refresh.RefreshScope"})
+  public SpringCloudConfigPropertySourceProcessor springCloudConfigPropertySourceProcessor() {
+    return new SpringCloudConfigPropertySourceProcessor();
   }
 }
