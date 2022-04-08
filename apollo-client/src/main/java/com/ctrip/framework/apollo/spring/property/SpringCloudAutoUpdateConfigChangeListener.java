@@ -25,6 +25,7 @@ import org.springframework.core.env.Environment;
 
 public class SpringCloudAutoUpdateConfigChangeListener extends AutoUpdateConfigChangeListener {
   final ApplicationContext applicationContext;
+  final RefreshScope refreshScope;
 
   public SpringCloudAutoUpdateConfigChangeListener(
       Environment environment,
@@ -32,6 +33,7 @@ public class SpringCloudAutoUpdateConfigChangeListener extends AutoUpdateConfigC
       ApplicationContext applicationContext) {
     super(environment, beanFactory);
     this.applicationContext = applicationContext;
+    this.refreshScope = applicationContext.getBean(RefreshScope.class);
   }
 
   @Override
@@ -41,7 +43,6 @@ public class SpringCloudAutoUpdateConfigChangeListener extends AutoUpdateConfigC
   }
 
   private void adapterSpringCloud(ConfigChangeEvent changeEvent) {
-    RefreshScope refreshScope = applicationContext.getBean(RefreshScope.class);
     if (refreshScope != null) {
       refreshScope.refreshAll();
     }
