@@ -162,13 +162,7 @@ public class AppService {
       return app;
     }
 
-    UserInfo owner = userService.findByUserId(app.getOwnerName());
-    if (owner == null) {
-      throw new BadRequestException("Application's owner not exist.");
-    }
-
-    app.setOwnerEmail(owner.getEmail());
-
+    app.setId(0);
     App createdApp = appRepository.save(app);
 
     roleInitializationService.initAppRoles(createdApp);

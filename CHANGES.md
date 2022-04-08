@@ -41,6 +41,14 @@ Apollo 2.0.0
 * [Fix update user's password failure](https://github.com/apolloconfig/apollo/pull/4212)
 * [Fix bug: associated namespace display incorrect in text view](https://github.com/apolloconfig/apollo/pull/4219)
 * [Add Ordered interface to ProviderManager SPI](https://github.com/apolloconfig/apollo/pull/4218)
-
+* [Using commons-lang3 to replace commons-lang](https://github.com/apolloconfig/apollo/pull/4225)
+* [optimize import/export config](https://github.com/apolloconfig/apollo/pull/4231)
+* [Configure publish and rollback modal boxes to add scrollbars](https://github.com/apolloconfig/apollo/pull/4251)
+* [fix import config bug](https://github.com/apolloconfig/apollo/pull/4262)
+* [Refactor the soft delete design](https://github.com/apolloconfig/apollo/pull/3866)
+* [Fix the potential data inconsistency issue](https://github.com/apolloconfig/apollo/pull/4256)
+* [Fix the deleted items display issue in text mode](https://github.com/apolloconfig/apollo/pull/4279)
+* [Upgrade spring boot to 2.6.6 and spring cloud to 2021.0.1](https://github.com/apolloconfig/apollo/pull/4295)
+* [Fix the apollo portal start failed issue](https://github.com/apolloconfig/apollo/pull/4298)
 ------------------
 All issues and pull requests are [here](https://github.com/ctripcorp/apollo/milestone/8?closed=1)
