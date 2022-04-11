@@ -18,6 +18,7 @@ package com.ctrip.framework.apollo.spring.config;
 
 import com.ctrip.framework.apollo.ConfigChangeListener;
 import com.ctrip.framework.apollo.build.ApolloInjector;
+import com.ctrip.framework.apollo.model.ConfigChange;
 import com.ctrip.framework.apollo.spring.property.AutoUpdateConfigChangeListener;
 import com.ctrip.framework.apollo.spring.util.SpringInjector;
 import com.ctrip.framework.apollo.util.ConfigUtil;
@@ -141,8 +142,9 @@ public class PropertySourcesProcessor implements BeanFactoryPostProcessor, Envir
     }
 
     List<ConfigPropertySource> configPropertySources = configPropertySourceFactory.getAllConfigPropertySources();
+    ConfigChangeListener configChangeListener = configChangeListener(environment, beanFactory);
     for (ConfigPropertySource configPropertySource : configPropertySources) {
-      configPropertySource.addChangeListener(configChangeListener(this.environment, beanFactory));
+      configPropertySource.addChangeListener(configChangeListener);
     }
   }
 
