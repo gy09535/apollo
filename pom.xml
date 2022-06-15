@@ -103,6 +103,7 @@
 		<module>apollo-demo</module>
 		<module>apollo-mockserver</module>
 		<module>apollo-openapi</module>
+		<module>apollo-client-spring-cloud-starter</module>
 	</modules>
 
 	<dependencyManagement>

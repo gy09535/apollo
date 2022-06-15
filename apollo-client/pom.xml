@@ -93,12 +93,5 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- end of test -->
-		<!-- spring cloud -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-context</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- end of spring cloud -->
 	</dependencies>
 </project>
