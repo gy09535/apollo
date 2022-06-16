@@ -10,5 +10,6 @@ Apollo 2.0.1
 * [Fix the npe issue for old version of gray release rules](https://github.com/apolloconfig/apollo/pull/4382)
 * [Fix the delete AppNamespace failed issue](https://github.com/apolloconfig/apollo/pull/4388)
 * [Bump okhttp3 from 3.11.0 to 4.9.3](https://github.com/apolloconfig/apollo/pull/4392)
+* [Support spring cloud refresh](https://github.com/apolloconfig/apollo/issues/4293) 
 ------------------
 All issues and pull requests are [here](https://github.com/apolloconfig/apollo/milestone/12?closed=1)
