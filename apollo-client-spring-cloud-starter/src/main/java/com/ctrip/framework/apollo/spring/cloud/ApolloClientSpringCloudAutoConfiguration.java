@@ -16,7 +16,8 @@
  */
 package com.ctrip.framework.apollo.spring.cloud;
 
-import com.ctrip.framework.apollo.spring.cloud.listener.SpringCloudConfigChangeListener;
+import com.ctrip.framework.apollo.spring.cloud.listener.SpringCloudEnvironmentChangeEventConfigChangeListener;
+import com.ctrip.framework.apollo.spring.cloud.listener.SpringCloudRefreshScopeConfigChangeListener;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +27,13 @@ public class ApolloClientSpringCloudAutoConfiguration {
 
     @Bean
     @ConditionalOnClass(name = {"org.springframework.cloud.context.scope.refresh.RefreshScope"})
-    public SpringCloudConfigChangeListener springCloudConfigPropertySourceProcessor() {
-        return new SpringCloudConfigChangeListener();
+    public SpringCloudRefreshScopeConfigChangeListener springCloudConfigPropertySourceProcessor() {
+        return new SpringCloudRefreshScopeConfigChangeListener();
+    }
+
+    @Bean
+    @ConditionalOnClass(name = {"org.springframework.cloud.context.environment.EnvironmentChangeEvent"})
+    public SpringCloudEnvironmentChangeEventConfigChangeListener springCloudEnvironmentChangeEventConfigChangeListener(){
+        return  new SpringCloudEnvironmentChangeEventConfigChangeListener();
     }
 }
